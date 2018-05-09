@@ -4,7 +4,7 @@
 (s/def ::id string?)
 
 (s/def ::category
-  (s/keys :req [::obs ::morphs ::paths
+  (s/keys :req [::paths ::sims
                 ::functors ::diagrams
                 ::labels]))
 

@@ -1,3 +1,6 @@
+(ns sample
+  (:require []))
+
 (def catetory-ex-01
  {::paths
   ["o1"  ["o1"]
@@ -10,9 +13,16 @@
   ["p1" ::= ["a2" "a3"]]
   ::labels
   {"l1" #{"o1" "p1"}}
+  ::ontology
+  {""}
   ::diagrams
   {"diagram name" {"foo" "p1"}}})
 
+;; ontology https://arxiv.org/abs/1503.08326
+;; The difference between an olog and a category is that an olog has
+;; additional structure: each object is labeled with a noun phrase
+;; and each arrow is labeled with a verb phrase,
+;; so that reading source-arrow-target yields an English SVO sentence.
 
 ;; here we have objects as zero-length paths.
 ;; the identity is natural as a path from an object to nowhere.

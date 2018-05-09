@@ -1,18 +1,118 @@
 
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
 
-(category
- (data
-  "NameSpace"
-  "Name"
-  "Version"
-  "Dependencies"
-  "Objects"
-  "Arrows"
-  "Paths"
-  "Validation rules"
-  "Enumeration of family members"
-  "Travel to near family members"
-  "Path equations"
-  "Functors"
-  "Labels"
-  "Diagrams"))
+\begin{document}
+
+There are a bunch of terms associated with categories.
+
+\begin{itemize}
+  \item "NameSpace"
+  \item "Name"
+  \item "Version"
+  \item "Dependencies"
+  \item "Objects"
+  \item "Arrows"
+  \item "Paths"
+  \item "Validation rules"
+  \item "Enumeration of family members"
+  \item "Travel to near family members"
+  \item "Path equations"
+  \item "Functors"
+  \item "Labels"
+  \item "Diagrams"
+\end{itemize}
+
+\section{Free Elements}
+
+We are developing a grammmar that has a free syntax.
+A free syntax in which many elements are implicit.
+In particular a category requires that every object have an identity arrow.
+As such including those arrows in addition to objects would be redundant.
+
+What are the things we should get for free?
+
+For all object identified we can infer the existence of all products.
+
+
+
+\begin{itemize}
+  \item $id_A$ every object has an identity morphism
+  \item every object has an identity morphism
+\end{itemize}
+
+\section{by Sets}
+
+
+\section{by Paths}
+
+Categories are all about structure so it seems odd that we should start with objects.
+What is the main element of structure?
+It is, of course, the path.
+Is it possible to just start with paths?
+
+Consider that a category is defined as a namespace.
+That namespace may, when required, may be given an appropriate alias.
+Individual elements of that required category have immutable names which
+are themselves unique within their namespace.
+In this example the unique identifiers may be taken as numerals.
+Paths are allowed, interesting compositions of other paths.
+Here are some examples:
+{ 1 [4 4], 2 [2], 3 [1 2], 4 [2 5 7 9] }
+
+From this list of paths we can infer a few things.
+But, something is missing.
+What is missing is a way to describe properties of paths.
+Paths may be of a sort: open or closed.
+An closed path is one that returns back to its start without change.
+The most obvious of the closed paths is the identity.
+Typically we say there is a collection of objects and each object is required
+to have an identity morphism.
+An alternate, structural, way to think of this is to say
+that a closed path forms an object.
+The notions of similarity can then be seen to be related to
+various types of closed paths.
+
+An open path, then, is a path which does not define an object.
+The purpose of an open path is to describe some type of similarity
+between paths, the most obvious similarity is equivalence.
+As objects are implicit in closed paths, arrows are implicit
+as elements of paths generally.
+
+The composition operation can be overloaded in its various arities.
+[] : construct an atomic object.
+[ x ] : construct an object from the object given.
+[ x y & zs ] : compose a path from the objects given.
+
+We can see the generation of anonymous paths and objects.
+The naming (labeling) of these paths and objects is not part
+of the structure but provides a mechanism for attaching constraints.
+
+
+\subsection{[] 0-arity}
+
+The use of the composition operator with no arguments forms an unnamed object.
+
+{:foo [] :bar [] :baz []}
+
+\subsection{[x] 1-arity}
+
+Normally the x object is a path identifier from which an object is formed.
+If an object is provided it could be considered
+a generation of the identity morphism on the object
+or it could be considered a no-op.
+
+{:foo [] :id-foo [:foo] :baz [:id-foo]}
+
+In the case given :baz is not equal to :foo even though they are both objects.
+:baz is the $id_foo$ arrow as an object.
+
+\subsection{[x y & zs] n-arity}
+
+This form always creates a path.
+In the case where the parameters are objects anonymous arrows will be created.
+
+
+
+\end{document}

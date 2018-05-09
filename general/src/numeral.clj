@@ -1,3 +1,4 @@
-(ns std.numeral)
+(ns std.numeral
+  "see numeral.tex")
 
 ()
